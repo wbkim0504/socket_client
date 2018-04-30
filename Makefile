@@ -7,11 +7,11 @@ TARGET = simple_client
 CC = gcc
 #CFLAGS = -g -c
 CFLAGS = -c
-LDFLAGS =
-LDLIBS = 
+LDFLAGS = 
+LDLIBS = -lpthread
 
 $(TARGET): $(OBJS)
-	$(CC) -o $@ $(OBJS) $(LDLIBS)
+	$(CC) -o $@ $(OBJS) $(LDLIBS) 
 	rm -f $(OBJS)
 
 .c.o:
