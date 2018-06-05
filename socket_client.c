@@ -67,11 +67,11 @@ int main(int argc, char **argv) {
 	while(1)
 	{
 		memset(buf, 0x00, MAXLINE);
-		read(0, buf, MAXLINE);
+		int rlen = read(0, buf, MAXLINE);
 		if (buf[0] == '\n')
 			break;
 
-		if (write(server_sockfd, buf, MAXLINE) <= 0) {
+		if (write(server_sockfd, buf, rlen) <= 0) {
 			perror("write error : ");
 			return 1;
 		}
